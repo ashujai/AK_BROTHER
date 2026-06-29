@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GangaView Resort – Rishikesh | Book Your Retreat</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="navbar">
+  <div class="nav-inner">
+    <div class="logo">
+      <span class="logo-icon">🕉</span>
+      <div>
+        <div class="logo-name">GangaView Resort</div>
+        <div class="logo-sub">Rishikesh, Uttarakhand</div>
+      </div>
+    </div>
+    <div class="nav-links">
+      <a href="#rooms">Rooms</a>
+      <a href="#amenities">Amenities</a>
+      <a href="#location">Location</a>
+      <a href="#gallery">Gallery</a>
+      <a href="#book" class="nav-cta">Book Now</a>
+    </div>
+    <button class="hamburger" onclick="toggleMenu()">☰</button>
+  </div>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#rooms" onclick="toggleMenu()">Rooms</a>
+    <a href="#amenities" onclick="toggleMenu()">Amenities</a>
+    <a href="#location" onclick="toggleMenu()">Location</a>
+    <a href="#gallery" onclick="toggleMenu()">Gallery</a>
+    <a href="#book" onclick="toggleMenu()">Book Now</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="river-animation">
+    <svg viewBox="0 0 1440 200" preserveAspectRatio="none">
+      <path class="wave wave1" d="M0,100 C240,150 480,50 720,100 C960,150 1200,50 1440,100 L1440,200 L0,200 Z"/>
+      <path class="wave wave2" d="M0,120 C200,80 400,160 600,120 C800,80 1000,160 1200,120 C1300,100 1380,130 1440,120 L1440,200 L0,200 Z"/>
+    </svg>
+  </div>
+  <div class="hero-content">
+    <div class="hero-badge">✦ Rishikesh's Premier River Retreat ✦</div>
+    <h1 class="hero-title">Where the Ganges<br><span class="gold">Meets Serenity</span></h1>
+    <p class="hero-sub">Luxury rooms with panoramic Himalayan views, steps from the sacred Ganges. Experience yoga, adventure & divine peace.</p>
+    <div class="hero-stats">
+      <div class="stat"><strong>4.9★</strong><span>Guest Rating</span></div>
+      <div class="stat-divider"></div>
+      <div class="stat"><strong>52</strong><span>Rooms</span></div>
+      <div class="stat-divider"></div>
+      <div class="stat"><strong>15+</strong><span>Years</span></div>
+    </div>
+    <a href="#book" class="hero-btn">Check Availability</a>
+  </div>
+  <div class="hero-scroll">↓ Explore</div>
+</section>
+
+<!-- QUICK BOOKING STRIP -->
+<section class="booking-strip" id="book">
+  <div class="strip-inner">
+    <h2 class="strip-title">Reserve Your Room</h2>
+    <div class="booking-form">
+      <div class="form-group">
+        <label>Check-In</label>
+        <input type="date" id="checkin" onchange="updateCheckout()">
+      </div>
+      <div class="form-group">
+        <label>Check-Out</label>
+        <input type="date" id="checkout">
+      </div>
+      <div class="form-group">
+        <label>Guests</label>
+        <select id="guests">
+          <option>1 Guest</option>
+          <option selected>2 Guests</option>
+          <option>3 Guests</option>
+          <option>4 Guests</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Room Type</label>
+        <select id="roomType">
+          <option value="standard">Standard Room</option>
+          <option value="deluxe">Deluxe River View</option>
+          <option value="suite">Premium Suite</option>
+          <option value="cottage">Yoga Cottage</option>
+        </select>
+      </div>
+      <button class="search-btn" onclick="searchRooms()">Search Rooms</button>
+    </div>
+  </div>
+</section>
+
+<!-- ROOMS SECTION -->
+<section class="rooms-section" id="rooms">
+  <div class="section-header">
+    <div class="section-eye">Our Accommodations</div>
+    <h2>Choose Your <span class="gold">Perfect Retreat</span></h2>
+    <p>Every room designed with natural materials, Himalayan views, and soulful comfort</p>
+  </div>
+
+  <div class="rooms-grid">
+
+    <div class="room-card" onclick="openModal('standard')">
+      <div class="room-img-wrap">
+        <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?w=600&q=80" alt="Standard Room" loading="lazy">
+        <div class="room-badge">Most Popular</div>
+        <div class="room-overlay">
+          <button class="view-btn">View Details</button>
+        </div>
+      </div>
+      <div class="room-info">
+        <div class="room-top">
+          <div>
+            <div class="room-type">Standard Room</div>
+            <div class="room-name">Garden View</div>
+          </div>
+          <div class="room-price">
+            <span class="price">₹3,499</span>
+            <span class="per-night">/night</span>
+          </div>
+        </div>
+        <div class="room-features">
+          <span>🛏 King Bed</span>
+          <span>📐 320 sq ft</span>
+          <span>🌿 Garden View</span>
+          <span>🚿 Ensuite Bath</span>
+        </div>
+        <div class="room-rating">★★★★★ <em>4.8 (124 reviews)</em></div>
+        <button class="book-btn" onclick="event.stopPropagation(); bookRoom('standard', 3499)">Book Now – ₹3,499</button>
+      </div>
+    </div>
+
+    <div class="room-card featured" onclick="openModal('deluxe')">
+      <div class="room-img-wrap">
+        <img src="https://images.unsplash.com/photo-1590490360182-c33d57733427?w=600&q=80" alt="Deluxe River View" loading="lazy">
+        <div class="room-badge gold-badge">⭐ Editor's Pick</div>
+        <div class="room-overlay">
+          <button class="view-btn">View Details</button>
+        </div>
+      </div>
+      <div class="room-info">
+        <div class="room-top">
+          <div>
+            <div class="room-type">Deluxe Room</div>
+            <div class="room-name">River View Balcony</div>
+          </div>
+          <div class="room-price">
+            <span class="price">₹5,999</span>
+            <span class="per-night">/night</span>
+          </div>
+        </div>
+        <div class="room-features">
+          <span>🛏 King Bed</span>
+          <span>📐 480 sq ft</span>
+          <span>🌊 River View</span>
+          <span>🏔 Himalayan Deck</span>
+        </div>
+        <div class="room-rating">★★★★★ <em>4.9 (287 reviews)</em></div>
+        <button class="book-btn" onclick="event.stopPropagation(); bookRoom('deluxe', 5999)">Book Now – ₹5,999</button>
+      </div>
+    </div>
+
+    <div class="room-card" onclick="openModal('suite')">
+      <div class="room-img-wrap">
+        <img src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=600&q=80" alt="Premium Suite" loading="lazy">
+        <div class="room-badge luxury-badge">👑 Luxury</div>
+        <div class="room-overlay">
+          <button class="view-btn">View Details</button>
+        </div>
+      </div>
+      <div class="room-info">
+        <div class="room-top">
+          <div>
+            <div class="room-type">Premium Suite</div>
+            <div class="room-name">Himalayan Panorama</div>
+          </div>
+          <div class="room-price">
+            <span class="price">₹11,999</span>
+            <span class="per-night">/night</span>
+          </div>
+        </div>
+        <div class="room-features">
+          <span>🛏 Super King</span>
+          <span>📐 850 sq ft</span>
+          <span>🌄 360° Views</span>
+          <span>🛁 Jacuzzi</span>
+        </div>
+        <div class="room-rating">★★★★★ <em>5.0 (98 reviews)</em></div>
+        <button class="book-btn" onclick="event.stopPropagation(); bookRoom('suite', 11999)">Book Now – ₹11,999</button>
+      </div>
+    </div>
+
+    <div class="room-card" onclick="openModal('cottage')">
+      <div class="room-img-wrap">
+        <img src="https://images.unsplash.com/photo-1535827841776-24afc1e255ac?w=600&q=80" alt="Yoga Cottage" loading="lazy">
+        <div class="room-badge green-badge">🧘 Wellness</div>
+        <div class="room-overlay">
+          <button class="view-btn">View Details</button>
+        </div>
+      </div>
+      <div class="room-info">
+        <div class="room-top">
+          <div>
+            <div class="room-type">Private Cottage</div>
+            <div class="room-name">Yoga & Meditation</div>
+          </div>
+          <div class="room-price">
+            <span class="price">₹7,499</span>
+            <span class="per-night">/night</span>
+          </div>
+        </div>
+        <div class="room-features">
+          <span>🛏 Twin Beds</span>
+          <span>📐 600 sq ft</span>
+          <span>🌿 Forest View</span>
+          <span>🧘 Yoga Deck</span>
+        </div>
+        <div class="room-rating">★★★★★ <em>4.9 (156 reviews)</em></div>
+        <button class="book-btn" onclick="event.stopPropagation(); bookRoom('cottage', 7499)">Book Now – ₹7,499</button>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- AMENITIES -->
+<section class="amenities-section" id="amenities">
+  <div class="amen-bg"></div>
+  <div class="section-header light">
+    <div class="section-eye">What We Offer</div>
+    <h2>Resort <span class="gold">Amenities</span></h2>
+  </div>
+  <div class="amen-grid">
+    <div class="amen-card">
+      <div class="amen-icon">🌊</div>
+      <h3>Ganga-side Deck</h3>
+      <p>Private ghat access with sunset viewing platforms right on the sacred Ganges</p>
+    </div>
+    <div class="amen-card">
+      <div class="amen-icon">🧘</div>
+      <h3>Yoga & Meditation</h3>
+      <p>Daily morning sessions with certified yoga masters. Open-air shala overlooking the Himalayas</p>
+    </div>
+    <div class="amen-card">
+      <div class="amen-icon">🍃</div>
+      <h3>Ayurvedic Spa</h3>
+      <p>Traditional Panchakarma treatments, herbal massages and wellness therapies</p>
+    </div>
+    <div class="amen-card">
+      <div class="amen-icon">🍽</div>
+      <h3>Sattvic Restaurant</h3>
+      <p>Pure vegetarian cuisine made from locally sourced organic ingredients. Rooftop dining available</p>
+    </div>
+    <div class="amen-card">
+      <div class="amen-icon">🏄</div>
+      <h3>River Rafting</h3>
+      <p>Guided white-water rafting expeditions on the Ganges — beginner to advanced levels</p>
+    </div>
+    <div class="amen-card">
+      <div class="amen-icon">🚵</div>
+      <h3>Adventure Hub</h3>
+      <p>Bungee jumping, zip-lining, trekking to Neelkanth Mahadev and Kunjapuri temples</p>
+    </div>
+    <div class="amen-card">
+      <div class="amen-icon">🌐</div>
+      <h3>Free High-Speed WiFi</h3>
+      <p>Fiber internet throughout the property — work from paradise</p>
+    </div>
+    <div class="amen-card">
+      <div class="amen-icon">🚗</div>
+      <h3>Airport Transfer</h3>
+      <p>Complimentary pickup from Dehradun Airport (DED) for stays of 3+ nights</p>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section class="gallery-section" id="gallery">
+  <div class="section-header">
+    <div class="section-eye">Visual Tour</div>
+    <h2>Resort <span class="gold">Gallery</span></h2>
+  </div>
+  <div class="gallery-grid">
+    <div class="g-item tall"><img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=600&q=80" alt="Himalayan View" loading="lazy"><div class="g-label">Himalayan Views</div></div>
+    <div class="g-item"><img src="https://images.unsplash.com/photo-1604328698692-f76ea9498e76?w=400&q=80" alt="River Ganges" loading="lazy"><div class="g-label">Sacred Ganges</div></div>
+    <div class="g-item"><img src="https://images.unsplash.com/photo-1545205597-3d9d02c29597?w=400&q=80" alt="Yoga Session" loading="lazy"><div class="g-label">Morning Yoga</div></div>
+    <div class="g-item wide"><img src="https://images.unsplash.com/photo-1571896349842-33c89424de2d?w=600&q=80" alt="Pool" loading="lazy"><div class="g-label">Infinity Pool</div></div>
+    <div class="g-item"><img src="https://images.unsplash.com/photo-1540555700478-4be289fbecef?w=400&q=80" alt="Spa" loading="lazy"><div class="g-label">Ayurvedic Spa</div></div>
+    <div class="g-item"><img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=400&q=80" alt="Restaurant" loading="lazy"><div class="g-label">Sattvic Dining</div></div>
+  </div>
+</section>
+
+<!-- LOCATION MAP -->
+<section class="location-section" id="location">
+  <div class="section-header">
+    <div class="section-eye">Find Us</div>
+    <h2>Our <span class="gold">Location</span></h2>
+    <p>Nestled in the foothills of Rishikesh near Laxman Jhula, Uttarakhand</p>
+  </div>
+  <div class="map-container">
+    <iframe
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d27752.53208688395!2d78.28498655!3d30.1021539!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3909430088ad8b25%3A0x547abc562a74efff!2sRishikesh%2C%20Uttarakhand!5e0!3m2!1sen!2sin!4v1699900000000!5m2!1sen!2sin"
+      width="100%" height="450" style="border:0; border-radius:16px;" allowfullscreen loading="lazy">
+    </iframe>
+    <div class="map-info-card">
+      <h3>🏨 GangaView Resort</h3>
+      <p>📍 Near Laxman Jhula, Rishikesh<br>Uttarakhand – 249302</p>
+      <p>📞 +91 98765 43210</p>
+      <p>✉ stay@gangaviewresort.com</p>
+      <div class="nearby">
+        <div class="nearby-title">Nearby Attractions</div>
+        <div class="nearby-item">🕉 Triveni Ghat – 2 km</div>
+        <div class="nearby-item">🌉 Laxman Jhula – 0.5 km</div>
+        <div class="nearby-item">🛕 Neelkanth Temple – 32 km</div>
+        <div class="nearby-item">✈ Dehradun Airport – 43 km</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- REVIEWS -->
+<section class="reviews-section">
+  <div class="section-header">
+    <div class="section-eye">Guest Stories</div>
+    <h2>What Our <span class="gold">Guests Say</span></h2>
+  </div>
+  <div class="reviews-grid">
+    <div class="review-card">
+      <div class="review-stars">★★★★★</div>
+      <p>"Waking up to the sound of Ganges every morning was life-changing. The yoga sessions at sunrise were magical. Will definitely return!"</p>
+      <div class="reviewer">
+        <div class="reviewer-avatar">P</div>
+        <div><strong>Priya S.</strong><br><em>Mumbai – Deluxe Room</em></div>
+      </div>
+    </div>
+    <div class="review-card">
+      <div class="review-stars">★★★★★</div>
+      <p>"The Premium Suite jacuzzi with Himalayan views — nothing in the world compares. Staff is incredibly warm. Sattvic food was divine."</p>
+      <div class="reviewer">
+        <div class="reviewer-avatar">R</div>
+        <div><strong>Rahul M.</strong><br><em>Delhi – Premium Suite</em></div>
+      </div>
+    </div>
+    <div class="review-card">
+      <div class="review-stars">★★★★★</div>
+      <p>"Went for the rafting package and stayed at the Yoga Cottage. Perfect balance of adventure and peace. The meditation deck at dusk was unforgettable."</p>
+      <div class="reviewer">
+        <div class="reviewer-avatar">A</div>
+        <div><strong>Anjali K.</strong><br><em>Bangalore – Yoga Cottage</em></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <div class="footer-logo">🕉 GangaView Resort</div>
+      <p>A sanctuary where the sacred river, healing mountains, and soulful hospitality converge.</p>
+      <div class="social-links">
+        <a href="#">📘</a><a href="#">📸</a><a href="#">🐦</a><a href="#">▶</a>
+      </div>
+    </div>
+    <div class="footer-links">
+      <h4>Quick Links</h4>
+      <a href="#rooms">Rooms & Rates</a>
+      <a href="#amenities">Amenities</a>
+      <a href="#gallery">Gallery</a>
+      <a href="#location">Location</a>
+      <a href="#book">Book Now</a>
+    </div>
+    <div class="footer-links">
+      <h4>Experiences</h4>
+      <a href="#">River Rafting</a>
+      <a href="#">Yoga Retreats</a>
+      <a href="#">Ayurvedic Spa</a>
+      <a href="#">Pilgrimage Tours</a>
+      <a href="#">Bungee Jumping</a>
+    </div>
+    <div class="footer-contact">
+      <h4>Contact</h4>
+      <p>📍 Laxman Jhula, Rishikesh<br>Uttarakhand – 249302</p>
+      <p>📞 +91 98765 43210</p>
+      <p>✉ stay@gangaviewresort.com</p>
+      <p>🕐 Front Desk: 24/7</p>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2025 GangaView Resort, Rishikesh. All rights reserved. | Privacy Policy | Terms of Service</p>
+  </div>
+</footer>
+
+<!-- ROOM MODAL -->
+<div class="modal-overlay" id="modalOverlay" onclick="closeModal()">
+  <div class="modal" onclick="event.stopPropagation()">
+    <button class="modal-close" onclick="closeModal()">✕</button>
+    <div class="modal-content" id="modalContent"></div>
+  </div>
+</div>
+
+<!-- BOOKING MODAL -->
+<div class="modal-overlay" id="bookingOverlay" onclick="closeBooking()">
+  <div class="modal booking-modal" onclick="event.stopPropagation()">
+    <button class="modal-close" onclick="closeBooking()">✕</button>
+    <div id="bookingContent"></div>
+  </div>
+</div>
+
+<!-- SUCCESS TOAST -->
+<div class="toast" id="toast"></div>
+
+<script src="app.js"></script>
+</body>
+</html>
